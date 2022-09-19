@@ -3,10 +3,12 @@ import * as Dialog from '@radix-ui/react-dialog';
 
 import './styles/main.css';
 import Logo from './assets/Logo.svg';
-import { GameBanner } from './components/GameBanner';
 import { CreatAtBanner } from './components/CreateAtBanner';
 import { CreateAtModal } from './components/CreateAtMofdal';
 import axios from 'axios';
+
+import GameBannerTest from './components/GameBannerSlide/App.test';
+import GameBannerSlide from './components/GameBannerSlide';
 
 export interface Game {
   id: string;
@@ -18,15 +20,6 @@ export interface Game {
 }
 
 function App() {
-  const [games, setGames] = useState<Game[]>([])
-
-  useEffect(() => {
-    axios('http://localhost:3333/games')
-      .then(response => {
-        setGames(response.data)
-      })
-  }, [])
-
   return (
     <div className="max-w-[1334px] flex flex-col items-center my-20 mx-auto">
       <img src={Logo} />
@@ -35,15 +28,7 @@ function App() {
         Seu <span className='text-transparent bg-nlw-gradient bg-clip-text'>duo</span> esta aqui.
       </h1>
 
-      <div className='grid grid-cols-6 gap-6 mt-16 px-6'>
-        {games.map(game => {
-          return (
-            <GameBanner title={game.title} bannerURL={game.bannerURL}
-              key={game.id} adsCounnt={game._count.ads} />
-          )
-        })}
-
-      </div>
+        <GameBannerTest />
 
       <Dialog.Root>
         <CreatAtBanner />
