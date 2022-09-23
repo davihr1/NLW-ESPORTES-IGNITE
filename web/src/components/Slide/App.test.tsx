@@ -7,7 +7,7 @@ import axios from "axios"
 import { Game } from "../../App"
 import { GameBanner } from "../GameBanner"
 
-export default function GameBannerTest() {
+export default function GameBannerSlide() {
     const [games, setGames] = useState<Game[]>([])
 
     useEffect(() => {
@@ -16,23 +16,23 @@ export default function GameBannerTest() {
                 setGames(response.data)
             })
     }, [])
-    
+
     const [sliderRef] = useKeenSlider({
-        mode: "free-snap",
+        mode: "snap",
         slides: {
             origin: "center",
-            perView: 7,
-            spacing: 20,
+            perView: 4,
+            spacing: 4,
         }
     })
 
     return (
-        <div ref={sliderRef} className="keen-slider mt-10 flex flex-row">
+        <div ref={sliderRef} className="keen-slider mt-10">
             {games.map(game => {
                 return (
                     <div className="keen-slider__slide">
-                        <GameBanner title='App' bannerURL='https://static-cdn.jtvnw.net/ttv-boxart/502732_IGDB-285x380.jpg'
-                            key={game.id} adsCounnt={3} />
+                        <GameBanner title={game.title} bannerURL={game.bannerURL}
+                            key={game.id} adsCounnt={game._count.ads} />
                     </div>
                 )
             })}

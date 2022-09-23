@@ -9,14 +9,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.3.4",
+    "@emotion/react": "11",
+    "@emotion/styled": "11",
     "@radix-ui/react-checkbox": "^1.0.0",
     "@radix-ui/react-dialog": "^1.0.0",
     "@radix-ui/react-select": "^1.0.0",
     "@radix-ui/react-toggle-group": "^1.0.0",
     "axios": "^0.27.2",
+    "framer-motion": "^7.3.6",
     "keen-slider": "^6.8.2",
+    "native-base": "^3.4.16",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-awesome-slider": "^4.1.0",
+    "react-dom": "^18.2.0",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-svg": "12.1.1",
+    "react-native-web": "0.17.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
